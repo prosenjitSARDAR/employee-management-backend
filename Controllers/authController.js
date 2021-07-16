@@ -86,8 +86,14 @@ const loginController = async (req, res, next) => {
 
 
 //CHANGE PASSWORD
-const changePassword = async (req, res, next) => {
+const resetPassword = async (req, res, next) => {
     try {
+        const { oldPassword, newPassword } = req.body;
+        const { _id } = req.currentUser;
+
+        baseController.success(res, "success", data = { oldPassword, newPassword, _id });
+
+
 
     } catch (err) {
         console.log(err);
@@ -103,5 +109,5 @@ const changePassword = async (req, res, next) => {
 module.exports = {
     registrationController,
     loginController,
-    changePassword
+    resetPassword
 }
